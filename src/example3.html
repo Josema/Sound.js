@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Sound.js Example 3</title>
+<script src="js/Sound.js"></script>
+<script>
+/*
+
+
+	This example dont work on Firefox. Because dont support mp3 files
+
+
+
+*/
+window.onload = function()
+{
+	var mysound = new Sound();
+	mysound.onReady = function(e) { mysound.play(); }
+	mysound.onError = function(e) { console.log(e.message); }
+	mysound.load({
+		mp3: 'music/eits-First-Breath-After-Coma.mp3'
+	});
+	
+	
+	var mysound2 = new Sound();
+	mysound2.onError = function(e) { console.log(e.message); }
+	var canplay = mysound2.load({
+		mp3: 'music/eits-First-Breath-After-Coma.mp3'
+	});
+	if (canplay)
+	{
+		mysound2.play();
+		mysound2.loop(true);
+	}
+	
+}
+</script>
+</head>
+<body>
+</body>
+</html>

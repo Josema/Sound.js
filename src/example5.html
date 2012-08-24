@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Sound.js Example 4</title>
+<style>
+ul { display:inline; margin:0 }
+li { display:inline; list-style-type: none; margin-right:50px }
+
+</style>
+<script src="js/Sound.js"></script>
+<script>
+var loopVar = false;
+var mysound;
+function $(id) { return document.getElementById(id); }
+window.onload = function()
+{
+	mysound = new Sound();
+	mysound.onReady = function() { $('state').innerHTML = "Ready to play"; }
+	mysound.onBufferReady = function() { $('state').innerHTML = "Buffer loaded"; }
+	mysound.load({
+		mp3: 'music/eits-First-Breath-After-Coma.mp3',
+		ogg: 'music/eits-First-Breath-After-Coma.ogg',
+		wav: 'music/eits-First-Breath-After-Coma.wav'
+	});
+	setInterval(function() {
+		$('time').innerHTML = Math.round(mysound.seek()) + "/" + Math.round(mysound.duration());
+	}, 1000);
+}
+function loop()
+{
+	loopVar=!loopVar;
+	$('loop').value = "Loop: " + loopVar;
+	mysound.loop(loopVar);
+}
+</script>
+</head>
+<body>
+<strong>State:</strong> <span id="state">&nbsp;</span><br />
+<strong>Time (Seconds):</strong> <span id="time">&nbsp;</span><br /><br />
+<ul style="display:inline">
+	<li><input type="button" onclick="mysound.play()" value="Play"></li>
+    <li><input type="button" onclick="mysound.pause()" value="Pause"></li>
+    <li><input type="button" onclick="mysound.stop()" value="Stop"></li>
+    <li><input type="button" onclick="mysound.playPause()" value="Play/Pause"></li>
+    <li><input type="button" onclick="mysound.mute()" value="Mute/Unmute"></li>
+    <li><input type="button" onclick="loop()" id="loop" value="Loop: false"></li>
+    <li><input type="button" onclick="mysound.volume(Number($('vol').value))" value="Volume"><input type="text" id="vol" value="0.5" size="2" /></li>
+    <li><input type="button" onclick="mysound.seek(Number($('seek').value))" value="Seek"><input type="text" id="seek" value="15" size="2" /></li>
+</ul>
+</body>
+</html>
