@@ -21,17 +21,14 @@ This code creates a instance Sound and detect what is the best format for the br
 
 ```html
 <script>
-window.onload = function()
-{
-	var mysound = new Sound();
-	mysound.load({
-		mp3: 'music/eits-First-Breath-After-Coma.mp3',
-		ogg: 'music/eits-First-Breath-After-Coma.ogg',
-		wav: 'music/eits-First-Breath-After-Coma.wav'
-	});
-	mysound.onBufferReady = function() { 
-		this.play();
-	}
+var mysound = new Sound();
+mysound.load({
+	mp3: 'music/eits-First-Breath-After-Coma.mp3',
+	ogg: 'music/eits-First-Breath-After-Coma.ogg',
+	wav: 'music/eits-First-Breath-After-Coma.wav'
+});
+mysound.onBufferReady = function() { 
+	this.play();
 }
 </script>
 ```
