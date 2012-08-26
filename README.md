@@ -29,7 +29,9 @@ window.onload = function()
 		ogg: 'music/eits-First-Breath-After-Coma.ogg',
 		wav: 'music/eits-First-Breath-After-Coma.wav'
 	});
-	mysound.play();
+	mysound.onBufferReady = function() { 
+		this.play();
+	}
 }
 </script>
 ```
