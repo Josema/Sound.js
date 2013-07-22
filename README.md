@@ -6,7 +6,7 @@ Josema Gonzalez (a.k.a. EnZo)
 
 #### What is  ####
 
-Sound.js its a simple class in javascript to using audio/sounds on browsers. Sound.js requiere a Audio tag (HTML5)
+Sound.js it's a simple written in native JavaScript to use audio/sounds for modern browsers.
 
 
 ### Usage ###
@@ -16,7 +16,7 @@ Sound.js its a simple class in javascript to using audio/sounds on browsers. Sou
 <script src="js/Sound.js"></script>
 ```
 
-This code creates a instance Sound and detect what is the best format for the browser. After load method will sound.
+This code create a Sound instance which detect what is the best format for the browser. After load the file, the music will play.
 
 
 ```html
