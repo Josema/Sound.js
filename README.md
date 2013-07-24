@@ -6,7 +6,7 @@ Josema Gonzalez (a.k.a. EnZo)
 
 #### What is  ####
 
-Sound.js it's a simple written in native JavaScript to use audio/sounds for modern browsers.
+Sound.js it's a simple class written in native JavaScript to use audio/sounds for modern browsers (HTML5).
 
 
 ### Usage ###
